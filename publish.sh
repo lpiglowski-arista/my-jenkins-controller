@@ -14,9 +14,6 @@ lts_version=$(cat LTS_VERSION.txt)
 version_type=$1
 case $version_type in
 latest)
-    docker-build ${lts_version}-alpine latest
-    docker-build ${lts_version}-alpine alpine
-    docker-build ${lts_version} debian
     docker-build ${lts_version}-jdk21 jdk21
     ;;
 v*)
