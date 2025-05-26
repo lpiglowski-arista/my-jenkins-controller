@@ -2,7 +2,7 @@ name: main
 on: push
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, local]
     strategy:
       matrix:
         dist: [debian, alpine, jdk11]
@@ -17,7 +17,7 @@ jobs:
 
   deploy-tag:
     needs: test
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, local]
     if: startsWith(github.ref, 'refs/tags/v')
     steps:
       - uses: actions/checkout@v2
@@ -40,7 +40,7 @@ jobs:
 
   deploy-latest:
     needs: test
-    runs-on: ubuntu-latest
+    runs-on: [self-hosted, local]
     if: github.event.ref == 'refs/heads/master'
     steps:
       - uses: actions/checkout@v2
