@@ -1,4 +1,4 @@
-ARG FROM_TAG=2.504.1
+ARG FROM_TAG=2.504.1-lts-jdk21
 
 FROM jenkins/jenkins:${FROM_TAG}
 
